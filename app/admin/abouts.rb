@@ -12,5 +12,5 @@ ActiveAdmin.register About do
 #   permitted
 # end
 
-  permit_params :description
+  permit_params :description, :name, :email
 end

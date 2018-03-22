@@ -1,3 +1,3 @@
 class About < ApplicationRecord
-  validates :description, presence: true
+  validates :description, :name, :email, presence: true
 end
