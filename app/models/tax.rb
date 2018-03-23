@@ -1,6 +1,6 @@
 class Tax < ApplicationRecord
-  belongs_to :provinces
+  belongs_to :province
 
-  validates :name, :rate, :provinces_id, presence: true
+  validates :name, :rate, :province_id, presence: true
   validates :rate, numericality: true
 end

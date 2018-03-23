@@ -94,7 +94,6 @@ ActiveRecord::Schema.define(version: 20180322222309) do
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "phone"
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -142,12 +141,12 @@ ActiveRecord::Schema.define(version: 20180322222309) do
   end
 
   create_table "taxes", force: :cascade do |t|
-    t.integer "provinces_id"
+    t.integer "province_id"
     t.string "name"
     t.float "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["provinces_id"], name: "index_taxes_on_provinces_id"
+    t.index ["province_id"], name: "index_taxes_on_province_id"
   end
 
 end
