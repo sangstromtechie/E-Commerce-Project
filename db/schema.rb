@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322230130) do
+ActiveRecord::Schema.define(version: 20180322222309) do
 
   create_table "abouts", force: :cascade do |t|
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "name"
     t.string "email"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "active_admin_comments", force: :cascade do |t|
@@ -41,7 +42,7 @@ ActiveRecord::Schema.define(version: 20180322230130) do
   end
 
   create_table "addresses", force: :cascade do |t|
-    t.integer "addresstype_id"
+    t.integer "address_type_id"
     t.integer "province_id"
     t.integer "aptno"
     t.string "street"
@@ -49,7 +50,7 @@ ActiveRecord::Schema.define(version: 20180322230130) do
     t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["addresstype_id"], name: "index_addresses_on_addresstype_id"
+    t.index ["address_type_id"], name: "index_addresses_on_address_type_id"
     t.index ["province_id"], name: "index_addresses_on_province_id"
   end
 
@@ -101,16 +102,16 @@ ActiveRecord::Schema.define(version: 20180322230130) do
   end
 
   create_table "order_products", force: :cascade do |t|
-    t.integer "orders_id"
-    t.integer "products_id"
+    t.integer "order_id"
+    t.integer "product_id"
     t.string "name"
     t.integer "quantity"
     t.float "price"
     t.float "tax"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["orders_id"], name: "index_order_products_on_orders_id"
-    t.index ["products_id"], name: "index_order_products_on_products_id"
+    t.index ["order_id"], name: "index_order_products_on_order_id"
+    t.index ["product_id"], name: "index_order_products_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -126,12 +127,12 @@ ActiveRecord::Schema.define(version: 20180322230130) do
     t.integer "category_id"
     t.string "name"
     t.text "description"
+    t.string "image"
     t.string "status"
     t.float "price"
     t.integer "instock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

@@ -1,5 +1,5 @@
 class Address < ApplicationRecord
-  belongs_to :addresstype
+  belongs_to :address_type
   belongs_to :province
   has_and_belongs_to_many :customers
 
