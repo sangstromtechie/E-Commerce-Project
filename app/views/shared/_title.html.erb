@@ -1,0 +1,13 @@
+<div class="three wide column">
+  <h1>Tumblers & Tomes
+    <% if current_page?(root_path) || current_page?('/products/') || current_page?('/products/show') %>
+      - Products
+    <% elsif current_page?('/products/new') %>
+      - New Products
+    <% elsif current_page?('/products/updated') %>
+      - Recently Updated
+    <% elsif current_page?('/about/') %>
+      - About Us
+    <% end %>
+  </h1>
+</div>

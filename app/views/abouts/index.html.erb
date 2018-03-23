@@ -1,7 +1,11 @@
 <% @abouts.each  do | about |%>
-  <p><%= about.description %></p>
-  <br>
-  <br>
-  <h3><%= about.name %></h3>
-  <p><%= about.email %></p>
+  <div class="twelve wide stretched column">
+    <div class="ui segment">
+      <%= about.description %>
+      <br>
+      <br>
+      <h3><%= about.name %></h3>
+      <p><%= about.email %></p>
+    </div>
+  </div>
 <% end %>

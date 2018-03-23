@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  root 'products#index'
+  resources :products, only: [:index, :new, :updated, :show]
+
+  root to: 'products#index'
 
   get 'products/new'
-
   get 'products/updated'
-
   get 'products/show'
 
   get 'abouts/index', 'about'
