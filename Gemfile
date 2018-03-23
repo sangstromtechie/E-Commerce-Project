@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'activeadmin'
 gem 'devise'
 gem 'carrierwave'
-gem 'mini_magick'
+gem 'rmagick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

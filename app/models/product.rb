@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   has_many :order_products
 
   mount_uploader :image, ImageUploader
+  serialize :image, JSON
 
   validates :name, :status, :price, :instock, presence: true
   validates :instock, numericality: {only_integer: true}
