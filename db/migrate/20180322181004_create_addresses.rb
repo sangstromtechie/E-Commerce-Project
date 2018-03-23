@@ -6,7 +6,6 @@ class CreateAddresses < ActiveRecord::Migration[5.1]
       t.integer :aptno
       t.string :street
       t.string :city
-      t.string :country
 
       t.timestamps
     end

@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20180322222309) do
     t.integer "aptno"
     t.string "street"
     t.string "city"
-    t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address_type_id"], name: "index_addresses_on_address_type_id"
