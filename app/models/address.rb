@@ -3,8 +3,7 @@ class Address < ApplicationRecord
   belongs_to :province
   has_and_belongs_to_many :customers
 
-  validates :aptno, :street, :address_type_id,
-            :province_id, presence: true
+  validates :street, :address_type_id, :province_id, presence: true
   validates :aptno, numericality: { only_integer: true }
 
 end
