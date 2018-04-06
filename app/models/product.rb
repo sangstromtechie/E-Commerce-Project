@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   serialize :image, JSON
   paginates_per 4
 
-  validates :name, :status, :price, :instock, presence: true
+  validates :name, :price, :instock, presence: true
   validates :instock, numericality: {only_integer: true}
   validates :price, numericality: true
 end

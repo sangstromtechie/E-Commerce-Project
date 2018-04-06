@@ -1,8 +1,10 @@
-<div class="ui dropdown">
-  <div class="text">All</div>
+<div class="ui selection dropdown">
+  <input name="filter" type="hidden">
   <i class="dropdown icon"></i>
+  <div class="default text">Filter...</div>
   <div class="menu">
-    <div class="text">New</div>
-    <div class="text">Updated</div>
+    <div class="item" data-value="all" data-text="All">All</div>
+    <div class="item" data-value="new" data-text="New">New</div>
+    <div class="item" data-value="update" data-text="Updated">Updated</div>
   </div>
 </div>

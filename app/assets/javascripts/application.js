@@ -16,3 +16,7 @@
 
 // Loads all Semantic javascripts
 //= require semantic-ui
+
+$('.ui.dropdown')
+    .dropdown()
+;

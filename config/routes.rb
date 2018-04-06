@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
+  get 'products/index'
   get 'products/new'
   get 'products/updated'
   get 'products/show'

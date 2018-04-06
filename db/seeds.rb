@@ -25,3 +25,8 @@ Province.create(name: 'Prince Edward Island')
 Province.create(name: 'Québec')
 Province.create(name: 'Saskachewan')
 Province.create(name: 'Yukon')
+
+Category.create(name: 'Book')
+Category.create(name: 'Miniature')
+Category.create(name: 'Tea')
+Category.create(name: 'Tea Accessories')
