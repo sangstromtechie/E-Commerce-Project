@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322222309) do
+ActiveRecord::Schema.define(version: 20180405193138) do
 
   create_table "abouts", force: :cascade do |t|
     t.text "description"
@@ -134,6 +134,16 @@ ActiveRecord::Schema.define(version: 20180322222309) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  create_table "province_taxes", force: :cascade do |t|
+    t.integer "province_id"
+    t.integer "tax_id"
+    t.decimal "rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_province_taxes_on_province_id"
+    t.index ["tax_id"], name: "index_province_taxes_on_tax_id"
+  end
+
   create_table "provinces", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -143,7 +153,6 @@ ActiveRecord::Schema.define(version: 20180322222309) do
   create_table "taxes", force: :cascade do |t|
     t.integer "province_id"
     t.string "name"
-    t.float "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["province_id"], name: "index_taxes_on_province_id"

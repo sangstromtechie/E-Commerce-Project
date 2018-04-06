@@ -4,6 +4,7 @@ class Product < ApplicationRecord
 
   mount_uploader :image, ImageUploader
   serialize :image, JSON
+  paginates_per 4
 
   validates :name, :status, :price, :instock, presence: true
   validates :instock, numericality: {only_integer: true}

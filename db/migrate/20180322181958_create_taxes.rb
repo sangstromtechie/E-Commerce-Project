@@ -3,7 +3,6 @@ class CreateTaxes < ActiveRecord::Migration[5.1]
     create_table :taxes do |t|
       t.references :province, foreign_key: true
       t.string :name
-      t.float :rate
 
       t.timestamps
     end

@@ -1,6 +1,8 @@
 class Tax < ApplicationRecord
-  belongs_to :province
+  has_many :province_taxes
+  has_many :provinces, through: :province_taxes
 
-  validates :name, :rate, :province_id, presence: true
-  validates :rate, numericality: true
+  accepts_nested_attributes_for :province_taxes, allow_destroy: true
+
+  validates :name, presence: true, uniqueness: true
 end

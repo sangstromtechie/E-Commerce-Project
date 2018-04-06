@@ -8,10 +8,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="relaxed container">
   <%= render partial: 'shared/title' %>
-  <div class="ui relaxed grid">
-    <%= render partial: 'shared/header' %>
+  <%= render partial: 'shared/header' %>
+  <div class="ui segment">
     <%= yield %>
   </div>
   </body>
