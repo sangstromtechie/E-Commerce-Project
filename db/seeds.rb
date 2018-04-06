@@ -27,6 +27,16 @@ Province.create(name: 'Saskachewan')
 Province.create(name: 'Yukon')
 
 Category.create(name: 'Book')
-Category.create(name: 'Miniature')
+Category.create(name: 'Game Accessories')
 Category.create(name: 'Tea')
 Category.create(name: 'Tea Accessories')
+
+About.create(name: 'Tumblers & Tomes Support',
+             email: 'support@tumblersandtomes.ca',
+             description: 'Tumblers & Tomes was founded back 2015 as a small
+                           shop in Transcona that specializes in selling teas,
+                           tea accessories and tabletop roleplaying games. The
+                           company has 5 different locations spread across
+                           Winnipeg, as well as locations in Brandon,
+                           Steinbach and Kenora, with over 25,000
+                           employees currently working for us as of today.')
