@@ -1,0 +1,44 @@
+<%= form_with(model: address, local: true) do |form| %>
+  <% if address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+      <ul>
+      <% address.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%=	form.label "Provinces" %>
+    <%=	form.collection_select(:province_id, Province.all, :id, :name, { :prompt => 'Select a province', :selected =>
+        address.province_id }, {class: 'form-control'}) %>
+  </div>
+
+  <div class="field">
+    <%=	form.label "Address Type" %>
+    <%=	form.collection_select(:address_type_id, AddressType.all, :id, :name, { :prompt => 'Select a address type', :selected =>
+        address.address_type_id }, {class: 'form-control'}) %>
+  </div>
+
+  <div class="field">
+    <%=	form.label :aptno %>
+    <%=	form.number_field :aptno, id: :address_aptno %>
+  </div>
+
+  <div class="field">
+    <%=	form.label :city %>
+    <%=	form.text_field :city, id: :address_city %>
+  </div>
+
+  <div class="field">
+    <%=	form.label :street %>
+    <%=	form.text_field :street, id: :address_street %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

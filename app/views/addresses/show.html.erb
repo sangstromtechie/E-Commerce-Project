@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Province:</strong>
+  <%=	@address.province.name %>
+</p>
+
+<p>
+  <strong>Address Type:</strong>
+  <%=	@address.address_type.name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%=	@address.city %>
+</p>
+
+<% if @address.aptno.nil? %>
+  <p>
+    <strong>Apt #:</strong>
+    <%=	@address.aptno %>
+  </p>
+<% end %>
+
+<p>
+  <strong>Street:</strong>
+  <%=	@address.street %>
+</p>
+
+<%= link_to 'Edit', edit_address_path(@address) %> |
+<%= link_to 'Back', addresses_path %>
