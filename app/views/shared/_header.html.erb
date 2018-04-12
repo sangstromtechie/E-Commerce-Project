@@ -1,5 +1,3 @@
-<%	categories_select = [['All', 0]] %>
-<% categories_select += @categories.all.map{|u|[u.name, u.id]}%>
 <div class="three wide column">
   <div class="ui secondary pointing menu">
     <% if current_page?(root_path) || current_page?('/products/') || current_page?('/products/show') %>
@@ -26,16 +24,26 @@
     <div class="right menu">
       <div class="ui item">
         <div class="ui transparent icon input">
-          <%= form_tag(products_path, method: :get) do %>
-          <%=	text_field_tag :term, params[:term] %>
-            <%= select_tag "category_id", options_for_select(categories_select) %>
-          <%= submit_tag 'Search' %>
+          <% if current_page?(root_path) || current_page?('/products/') || current_page?('/products/show') ||
+              current_page?('/about/') || current_page?('/products/new') || current_page?('/products/updated')%>
+            <%	categories_select = [['All', 0]] %>
+            <% categories_select += @categories.all.map{|u|[u.name, u.id]}%>
+            <%= form_tag(products_path, method: :get) do %>
+              <%=	text_field_tag :term, params[:term] %>
+              <%= select_tag "category_id", options_for_select(categories_select) %>
+              <%= submit_tag 'Search' %>
+            <% end %>
           <% end %>
         </div>
       </div>
-      <a class="ui item">
-        Logout
-      </a>
+      <% if customer_signed_in? %>
+        Logged in as <%= current_customer.email %>
+        <%=	link_to 'Edit Account', edit_customer_registration_path, class: "ui item" %>
+        <%=	link_to 'Logout', destroy_customer_session_path, method: :delete, class: "ui item" %>
+      <% else %>
+        <%=	link_to 'Sign Up', new_customer_registration_path, class: "ui item" %>
+        <%=	link_to 'Login', new_customer_session_path, class: "ui item" %>
+      <% end %>
     </div>
   </div>
 </div>

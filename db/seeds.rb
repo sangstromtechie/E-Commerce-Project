@@ -12,6 +12,10 @@ Tax.create(name: 'HST')
 Tax.create(name: 'PST')
 Tax.create(name: 'QST')
 
+AddressType.create(name: 'Billing')
+AddressType.create(name: 'Shipping')
+AddressType.create(name: 'Both')
+
 Province.create(name: 'Alberta')
 Province.create(name: 'British Columbia')
 Province.create(name: 'Manitoba')
