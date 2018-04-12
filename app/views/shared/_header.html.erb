@@ -1,20 +1,33 @@
+<%	categories_select = [['All', 0]] %>
+<% categories_select += @categories.all.map{|u|[u.name, u.id]}%>
 <div class="three wide column">
   <div class="ui secondary pointing menu">
-    <% if current_page?(root_path) || current_page?('/products/') || current_page?('/products/show')||
-        current_page?('/products/new') || current_page?('/products/updated') %>
+    <% if current_page?(root_path) || current_page?('/products/') || current_page?('/products/show') %>
       <%= link_to 'Home', root_path, class: "active item" %>
       <%= link_to 'About Us', '/about', class: "item" %>
+      <%= link_to 'New Items', '/products/new', class: "item" %>
+      <%= link_to 'Recently Updated', '/products/updated', class: "item" %>
     <% elsif current_page?('/about/') %>
       <%= link_to 'Home', root_path, class: "item" %>
       <%= link_to 'About Us', '/about', class: "active item" %>
+      <%= link_to 'New Items', '/products/new', class: "item" %>
+      <%= link_to 'Recently Updated', '/products/updated', class: "item" %>
+      <% elsif current_page?('/products/new') %>
+      <%= link_to 'Home', root_path, class: "item" %>
+      <%= link_to 'About Us', '/about', class: "item" %>
+      <%= link_to 'New Items', '/products/new', class: "active item" %>
+      <%= link_to 'Recently Updated', '/products/updated', class: "item" %>
+      <% elsif current_page?('/products/updated') %>
+      <%= link_to 'Home', root_path, class: "item" %>
+      <%= link_to 'About Us', '/about', class: "item" %>
+      <%= link_to 'New Items', '/products/new', class: "item" %>
+      <%= link_to 'Recently Updated', '/products/updated', class: "active item" %>
     <% end %>
     <div class="right menu">
       <div class="ui item">
         <div class="ui transparent icon input">
           <%= form_tag(products_path, method: :get) do %>
           <%=	text_field_tag :term, params[:term] %>
-            <%	categories_select = [['All', 0]] %>
-            <% categories_select += @categories.all.map{|u|[u.name, u.id]}%>
             <%= select_tag "category_id", options_for_select(categories_select) %>
           <%= submit_tag 'Search' %>
           <% end %>

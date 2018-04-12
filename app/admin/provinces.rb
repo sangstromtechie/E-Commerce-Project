@@ -22,19 +22,19 @@ ActiveAdmin.register Province do
       province.taxes.map { |bg|bg.name}.join(", ").html_safe
     end
     column :province_taxes do |province|
-      province.province_taxes.map { |bg|bg.name}.join(", ").html_safe
+      province.province_taxes.map { |bg|bg.rate}.join(", ").html_safe
     end
     actions
   end
 
   show do |province|
-    attributes_able do
+    attributes_table do
       row :name
       row :taxes do |province|
         province.taxes.map { |bg|bg.name}.join(", ").html_safe
       end
       row :province_taxes do |province|
-        province.province_taxes.map { |bg|bg.name}.join(", ").html_safe
+        province.province_taxes.map { |bg|bg.rate}.join(", ").html_safe
       end
     end
   end

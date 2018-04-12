@@ -151,11 +151,9 @@ ActiveRecord::Schema.define(version: 20180405193138) do
   end
 
   create_table "taxes", force: :cascade do |t|
-    t.integer "province_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["province_id"], name: "index_taxes_on_province_id"
   end
 
 end

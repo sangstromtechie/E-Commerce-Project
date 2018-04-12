@@ -5,9 +5,9 @@ class ProductsController < ApplicationController
                          .or(Product.where('description LIKE ?',
                                            "%#{params[:term]}%"))
                 else
-                  Product.all
+                  Product.all.order(:name)
                 end
-    if params[:category_id] && params[:category_id] != 0
+    if params[:category_id] && params[:category_id] != '0'
       @products = @products.where('category_id = ?', "#{params[:category_id]}")
     end
     @categories = Category.all
@@ -15,16 +15,19 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @products = Product.where("created_at =< ?", 14.days.ago)
+    @products = Product.where('created_at <= ?', 14.days.ago)
                        .page(params[:page])
+    @categories = Category.all
   end
 
   def updated
-    @products = Product.where("updated_at =< ?", 14.days.ago)
+    @products = Product.where('updated_at <= ?', 14.days.ago)
                        .page(params[:page])
+    @categories = Category.all
   end
 
   def show
     @products = Product.find(params[:id])
+    @categories = Category.all
   end
 end
