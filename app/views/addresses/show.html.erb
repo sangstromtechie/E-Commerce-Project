@@ -15,7 +15,7 @@
   <%=	@address.city %>
 </p>
 
-<% if @address.aptno.nil? %>
+<% if @address.aptno == "" %>
   <p>
     <strong>Apt #:</strong>
     <%=	@address.aptno %>

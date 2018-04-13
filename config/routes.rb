@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :products, only: [:index, :new, :updated, :show]
+  resources :products, only: [ :index, :new, :updated, :show ]
   resources :addresses
 
   root to: 'products#index'
